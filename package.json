@@ -1,6 +1,7 @@
 {
   "name": "youtube-app",
   "version": "0.1.0",
+  "homepage": "https://natashulik.github.io/youtube-clone",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.1.4",
@@ -20,6 +21,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,6 +49,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
     "customize-cra": "^1.0.0",
+    "gh-pages": "^5.0.0",
     "react-app-rewired": "^2.2.1"
   }
 }
