@@ -1,28 +1,35 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { Skeleton } from "antd";
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 import { fetchViewsCount } from '../helpers/fetchViewsCount';
 import { setVideoViews, setVideoLoading } from '../redux/inputSlice';
 
-const ViewsCount = (videoId) => {
+const ViewsCount = ({ videoId }) => {
   const dispatch = useDispatch();
-  const { views, isLoading } = useSelector(state => state.input.videos.find(item => item.id.videoId === videoId));
- 
-   useEffect(() => {
-    async function fetchData() {
-      const res = await dispatch(fetchViewsCount(videoId));
-      console.log(res)
+  const views = useSelector(state => state.input.videos.find(item => item.id.videoId === videoId)?.views);
+  const isLoading = useSelector(state => state.input.videos.find(item => item.id.videoId === videoId)?.isLoading);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetchViewsCount(videoId);
       dispatch(setVideoViews({ videoId, views: res }));
       dispatch(setVideoLoading({ videoId, isLoading: true }));
+      if (views) { dispatch(setVideoLoading({ videoId, isLoading: false })); }
     }
     fetchData();
-       }, []);
+  }, [views])
 
-    return   <div>
-      {isLoading ? <Skeleton /> : <p className='view_count'>{views} тыс. просмотров</p>}
-    </div>
+
+  return <div>
+    {isLoading ? <Spin indicator={(<LoadingOutlined style={{ fontSize: 24, }} spin />)} />
+      : <p className='view_count'>{(views / 1000).toFixed(1)} тыс. просмотров</p>}
+
+  </div>
 };
 
 export default ViewsCount;
 
+
+ 

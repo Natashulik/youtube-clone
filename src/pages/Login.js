@@ -1,14 +1,20 @@
 //  email: "fdsvjnoi@mail.ru"
 //  password: "jfghdik_kd4TT"
 
+//email: "1111@tut.by"
+//password: "1111Aa+++Aa"
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import { useNavigate } from "react-router-dom";
-
+import logo from '../images/logo.svg'
+import { setInputText} from '../redux/inputSlice';
+import { setFavorites } from '../redux/favoriteSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { setEmail, setPassword, setIsError } from "../redux/loginSlice";
+import {loadFavorites} from '../helpers/localStorage';
 
 function Login() {
   const email = useSelector(state => state.login.email);
@@ -37,13 +43,15 @@ function Login() {
       })
 
       const data = await result.json();
-      console.log(data)
+      
 
       if (!data.token) {
         throw new Error(data.message);
       } else {
         localStorage.setItem("token", data.token);
         navigate("/search");
+        dispatch(setInputText(''));
+        dispatch(setFavorites(loadFavorites()));
       }
 
     } catch (error) {
@@ -53,7 +61,7 @@ function Login() {
   }
 
   return <div className='login_wrapper'>
-    <img src="images/sibdev-logo.svg" alt="logo" className='logo' />
+    <img src={logo} alt="logo" className='logo' />
     <h3 className='form_title'>Вход</h3>
 
     <Form className='login_form' layout="vertical"

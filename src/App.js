@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="wrapper">
        <Routes>
-          <Route path="/login" element={<Login/>} />
+          <Route path="/youtube-clone" element={<Login/>} />
           <Route path="/register" element={<Registration/>} />
           <Route path="/search" element={<PrivateRoute> 
              <Search/>

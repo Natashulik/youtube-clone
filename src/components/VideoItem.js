@@ -14,7 +14,7 @@ return  <>
     <div className="video_item_details">
         <h3  className='item_title'>{title}</h3>
         <p className='item_description'>{description}</p>
-        <ViewsCount videoId={videoId}/>      {/*без этой строки работает*/}
+    <ViewsCount videoId={videoId}/>     
     </div>
  </a>
  </>};

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUsername, setEmail, setPassword,  setAge, setGender, setIsError } from "../redux/registrationSlice";
+import logo from '../images/logo.svg'
 
 function Registration() {
     const username = useSelector(state => state.registration.username);
@@ -55,7 +56,7 @@ const handleSubmit = async (event) => {
 }
 
   return (<div className='registration_wrapper'>
-     <img src="images/sibdev-logo.svg" alt="logo" className='logo' />
+     <img src={logo} alt="logo" className='logo' />
      <h3 className='form_title'>Регистрация</h3>
     <form onSubmit={event => handleSubmit(event)}>
       <div className="form_register"> 

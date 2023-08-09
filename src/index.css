@@ -475,7 +475,7 @@ color: rgba(23, 23, 25, 0.30);
 
 .favorites_container {
   align-items: flex-start;
-  border: 1px solid olivedrab;
+
 }
 
 .favorites_title {
@@ -504,15 +504,16 @@ font-weight: 500;
 line-height: 47px; 
 padding-left: 20px;
 display: flex;
-border:  1px solid red;
+
 }
 
 .favorite_item_title {
-  width: 925px;
+  width: 880px;
 }
 
 .button-delete,
-.button-edit {
+.button-edit,
+.button-make {
   width: 35px;
   height: 40px;
   border-radius: 10px;
@@ -526,7 +527,8 @@ border:  1px solid red;
 
 /*-------modal---------*/
 
-.modal_container {
+.modal_container,
+.modal_edit_container {
   width: 510px;
   height: 573px;
   background-color: white;
@@ -539,6 +541,15 @@ border:  1px solid red;
   position: absolute;
   margin-left: 250px;
   
+}
+
+.search_container .modal_container {
+  margin-left: 30px;
+}
+
+.modal_edit_container {
+  margin-top: -220px;
+
 }
 
 .modal_title {
@@ -593,6 +604,10 @@ font-weight: 400;
 line-height: 24px;
 }
 
+.invalid_input {
+  outline: 1px solid red;
+}
+
 
 .max_request_block {
   width: 430px;
@@ -634,6 +649,40 @@ line-height: 24px;
   color: white;
  }
 
+ .modal_save_container {
+  width: 220px;
+  height: 124px;
+  padding: 22px 15px;
+  line-height: 20px;
+  box-shadow: 0px 5px 20px 0px rgba(150, 150, 166, 0.8);
+  background-color: white;
+  border-radius: 5px;
+  }
+
+ .result_container  .modal_save_container  {
+  position: absolute;
+  margin-left: 750px;
+  margin-top: 140px;
+ }
+
+ .search_container  .modal_save_container  {
+  position: absolute;
+  margin-left: 370px;
+  margin-top: 355px;
+ }
+
+ .modal_save_title {
+  width: 190px;
+  height: 48px;
+  margin-bottom: 15px;
+ }
+
+ .modal_save_link{
+  width: 190px;
+  height: 24px;
+  text-decoration: none;
+  color: #1390E5;
+ }
 
 
  
