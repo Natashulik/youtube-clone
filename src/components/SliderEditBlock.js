@@ -1,39 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, InputNumber, Row, Slider, Space } from 'antd';
 import { useSelector, useDispatch } from "react-redux";
-import { setQuantityForEditRequest} from '../redux/favoriteSlice';
+import { setQuantityForEditRequest } from '../redux/favoriteSlice';
 
 
 const SliderEditBlock = () => (
-    <Space
-      style={{
-        width: '100%',
-      }}
-      direction="vertical"
-    >
-      <IntegerEditStep />
-      </Space>
-  );
-  export default SliderEditBlock;
+  <Space
+    style={{
+      width: '100%',
+    }}
+    direction="vertical"
+  >
+    <IntegerEditStep />
+  </Space>
+);
+export default SliderEditBlock;
 
 const IntegerEditStep = () => {
   const dispatch = useDispatch();
   const quantityForEditRequest = useSelector(state => state.favorite.quantityForEditRequest);
 
   const onChange = (newQuantity) => {
-     dispatch(setQuantityForEditRequest(newQuantity)); // меняем запрос для edit
+    dispatch(setQuantityForEditRequest(newQuantity)); // меняем запрос для edit
   };
   return (
-    <Row> 
+    <Row>
       <Col span={18}>
         <Slider
           min={0}
           max={50}
           onChange={onChange}
-        //  value={typeof quantityForEditRequest === 'number' ? quantityForEditRequest : 0}
-        value={quantityForEditRequest}
-     
-         />
+          value={quantityForEditRequest}
+
+        />
       </Col>
       <Col span={2}>
         <InputNumber
@@ -46,34 +45,31 @@ const IntegerEditStep = () => {
           }}
           value={quantityForEditRequest}
           onChange={onChange}
+         
         />
       </Col>
     </Row>
   );
 };
 
-/*
-const SliderEditBlock = () => (
-    <Space  style={{ width: '100%' }} direction="vertical" >
-      <IntegerEditStep />
-      </Space>
-  );
-  export default SliderEditBlock;
 
-const IntegerEditStep = () => {
+
+/*
+const SliderEditBlock= () => {
   const dispatch = useDispatch();
   const quantityForEditRequest = useSelector(state => state.favorite.quantityForEditRequest);
-
   const onChange = (newQuantity) => {
-     dispatch(setQuantityForEditRequest(newQuantity));
+    dispatch(setQuantityForEditRequest(newQuantity)); 
   };
-  return <Row>  <Col span={18}>
-        <Slider  min={0} max={50}  onChange={onChange} value={typeof quantityForEditRequest/>
+  return (<Row>
+      <Col span={18}>
+        <Slider  min={0} max={50} onChange={onChange} value={quantityForEditRequest} />
       </Col>
       <Col span={2}>
-        <InputNumber  min={0}  max={50} value={quantityForEditRequest} onChange={onChange} />
+        <InputNumber  min={0}  max={50}  value={quantityForEditRequest}
+          onChange={onChange}  />
       </Col>
-    </Row>};
-
-*/
+    </Row>
+  );
+};*/
 

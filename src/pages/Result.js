@@ -6,19 +6,18 @@ import VideosContainer from '../components/VideosContainer';
 
 
 function Result() {
-
-    return <div>
-      <Header/>
-      <div className='search_body'> 
-        <div className='result_container'>
-          <h2 className='search_title result'>Поиск видео</h2>
-          <Input/>
-          < FilterPanel/>
-           <VideosContainer />
-        </div>
-      
+  return <div>
+    <Header />
+    <div className='search_body'>
+      <div className='result_container'>
+        <h2 className='search_title result'>Поиск видео</h2>
+        <Input />
+        < FilterPanel />
+        <VideosContainer />
       </div>
+
     </div>
+  </div>
 }
 
 export default Result;

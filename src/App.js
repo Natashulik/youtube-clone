@@ -9,17 +9,15 @@ import Favorites from "./pages/Favorites";
 function App() {
   return (
     <div className="wrapper">
-       <Routes>
-          <Route path="/youtube-clone" element={<Login/>} />
-          <Route path="/register" element={<Registration/>} />
-          <Route path="/search" element={<PrivateRoute> 
-             <Search/>
-          </PrivateRoute>} />
-          <Route path="/result" element={<Result/>} />
-          <Route path="/favorites" element={<Favorites/>} />
-        
+      <Routes>
+        <Route path="/youtube-clone" element={<Login />} />
+        <Route path="/register" element={<Registration />} />
+        <Route path="/search" element={<PrivateRoute>
+          <Search />
+        </PrivateRoute>} />
+        <Route path="/result" element={<Result />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
-     
     </div>
   );
 }

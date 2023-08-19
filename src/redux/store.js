@@ -8,12 +8,11 @@ import favoriteSlice from "./favoriteSlice";
 
 
 export const store = configureStore({
-    reducer: {
-        login: loginSlice,
-        registration: registrationSlice,
-        input: inputSlice,
-        icon: iconSlice,
-        favorite: favoriteSlice   
-    
+  reducer: {
+    login: loginSlice,
+    registration: registrationSlice,
+    input: inputSlice,
+    icon: iconSlice,
+    favorite: favoriteSlice
     }
 })
