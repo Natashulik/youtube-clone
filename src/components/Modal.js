@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import SliderBlock from './SliderBlock';
 import { setIsModalOpen } from '../redux/inputSlice';
 import { setNewItems, setQuantityForNewRequest } from '../redux/favoriteSlice';
+import { saveFavorites } from '../helpers/localStorage';
 import { setIsModalSaveOpen } from '../redux/inputSlice';
 import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';
 
 function Modal() {
   const text = useSelector(state => state.input.text);
-  const  quantityForNewRequest = useSelector(state => state.favorite.quantityForNewRequest);
+  const  {favoriteItems, quantityForNewRequest }= useSelector(state => state.favorite);
   const user = useSelector(state => state.login.email);
   const dispatch = useDispatch();
 
@@ -33,6 +34,8 @@ function Modal() {
       console.log(newRequest)
 
       dispatch(setNewItems(newRequest));
+      saveFavorites([...favoriteItems, newRequest]);
+
       dispatch(setIsModalOpen(false));
       dispatch(setQuantityForNewRequest(12))
       dispatch(setIsModalSaveOpen(true));

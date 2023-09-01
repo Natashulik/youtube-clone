@@ -11,7 +11,6 @@ function Favorites() {
         <div className='request_container'>
           <FavoriteItems />
         </div>
-
       </div>
     </div>
   </div>

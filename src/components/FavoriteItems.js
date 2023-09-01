@@ -18,10 +18,10 @@ function FavoriteItems() {
     const savedFavorites = loadFavorites();
     dispatch(setFavorites(savedFavorites));
   }, []);
-
+/*
   useEffect(() => {
     saveFavorites(favoriteItems);
-  }, [favoriteItems]);
+  }, [favoriteItems]);*/
 
   const handleDeleteItem = id => {
     dispatch(deleteItem(id));
@@ -73,3 +73,4 @@ function FavoriteItems() {
 }
 
 export default FavoriteItems;
+
