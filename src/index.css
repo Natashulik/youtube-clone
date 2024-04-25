@@ -24,6 +24,11 @@ body {
   border: 0.5px solid rgba(227, 227, 227, 0.5);
 }
 
+.login,
+.registration {
+  padding: 0 15px;
+}
+
 .login_wrapper,
 .registration_wrapper {
   margin: 90px auto;
@@ -35,8 +40,6 @@ body {
   background-color: white;
   border-radius: 5px;
   border: 1px solid rgba(39, 39, 39, 0.1);
-
-  outline: 1px solid blue;
 }
 
 .registration_wrapper {
@@ -289,9 +292,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: left;
-
-  padding: 0 10px;
-  outline: px solid black;
+  padding: 0 15px;
 }
 
 .search_title.result {
@@ -327,11 +328,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  outline: 1px solid black;
 }
 
 .filter_title_wrapper {
   display: flex;
+  align-items: center;
 }
 
 .filter_title {
@@ -403,6 +404,7 @@ body {
   flex-direction: column;
   max-width: 510px;
   min-height: 88px;
+  gap: 10px;
 }
 
 .list_mode .item_title {
@@ -415,6 +417,7 @@ body {
   line-height: 20px;
   color: black;
   overflow: hidden;
+  text-align: justify;
 }
 
 .list_mode .item_description,
@@ -424,6 +427,14 @@ body {
   overflow: hidden;
   margin-bottom: 2px;
   font-size: 16px;
+  text-align: justify;
+}
+
+.list_mode .item_description {
+  color: rgba(23, 23, 25, 0.7);
+}
+
+.list_mode .view_count {
   color: rgba(23, 23, 25, 0.3);
 }
 
@@ -468,6 +479,12 @@ body {
   overflow: hidden;
   margin-bottom: 2px;
   font-size: 14px;
+}
+
+.grid_mode .item_description {
+  color: rgba(23, 23, 25, 0.7);
+}
+.grid_mode .view_count {
   color: rgba(23, 23, 25, 0.3);
 }
 
@@ -547,10 +564,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
   padding: 0 30px;
-}
-
-.search_container .modal_container {
-  margin-left: 30px;
 }
 
 .modal_edit_container {
@@ -700,6 +713,17 @@ body {
     grid-template-columns: repeat(2, 45%);
     justify-items: center;
   }
+
+  .search_container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 700px) {
+  .input_container,
+  .search_input {
+    width: 100%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -758,5 +782,11 @@ body {
   .ant-input-number {
     width: 80px;
     margin: 0;
+  }
+}
+
+@media (max-width: 460px) {
+  .search_input::placeholder {
+    color: transparent;
   }
 }
