@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: 1px solid red;
 }
 
 html {
@@ -712,6 +713,7 @@ body {
   .videos_container.grid_mode {
     grid-template-columns: repeat(2, 45%);
     justify-items: center;
+    justify-content: center;
   }
 
   .search_container {
@@ -732,16 +734,20 @@ body {
     padding: 26px 10px 0px 10px;
   }
 
-  .videos_container.grid_mode {
-    grid-template-columns: 1fr;
-  }
-
   .view_switcher {
     margin-left: 10px;
+  }
+
+  .search_container .modal_save_container {
+    margin-left: 150px;
   }
 }
 
 @media (max-width: 550px) {
+  .videos_container.grid_mode {
+    grid-template-columns: 1fr;
+  }
+
   .list_mode .video_item {
     flex-direction: column;
   }
