@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 1px solid red;
 }
 
 html {
@@ -753,8 +752,8 @@ body {
   }
 
   .list_mode .video_image {
-    width: 70%;
-    height: auto;
+    /*  width: 70%;
+    height: auto;*/
     margin-right: 0;
     margin-bottom: 10px;
   }
